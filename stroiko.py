@@ -1,8 +1,9 @@
 import streamlit as st
 import requests
 
+# Настройки на страницата и базово SEO
 st.set_page_config(
-    page_title="Майстор Ремонт - Строителни Услуги", 
+    page_title="Майстор Ремонт - Строителни Услуги, Плочки, Шпакловка", 
     page_icon="🏗️", 
     layout="wide"
 )
@@ -11,10 +12,10 @@ st.set_page_config(
 st.title("🏗️ Майстор Ремонт - Професионални Строителни Услуги")
 st.write("Качествени строително-ремонтни дейности, довършителни работи и майсторски решения за вашия дом и офис.")
 
-# Нова строителна снимка
+# Снимка на майстор, полагащ плочки
 st.image(
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop", 
-    caption="Професионално строителство и ремонтни дейности", 
+    "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop", 
+    caption="Професионално полагане на плочки, фаянс и строителни ремонти", 
     use_container_width=True
 )
 
