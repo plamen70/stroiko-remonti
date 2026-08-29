@@ -84,26 +84,30 @@ with col2:
 
 st.markdown("---")
 
-# Секция Форма за запитване
+# Секция Истинска Streamlit форма за запитване (работеща с Formspree)
 st.header("📩 Изпратете Запитване за Безплатен Оглед")
-st.write("Попълнете формата и ние ще се свържем с вас възможно най-скоро!")
+st.write("Попълнете полетата по-долу и съобщението ще стигне директно до нашия имейл!")
 
-contact_form = """
-<form action="https://formspree.io/f/xrpgbzko" method="POST" style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #eee;">
-    <label style="font-weight: bold;">Име и Фамилия</label><br>
-    <input type="text" name="name" placeholder="Вашето име" required style="width: 100%; margin-top: 5px; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"><br>
+with st.form("contact_form"):
+    name = st.text_input("Вашето име")
+    email = st.text_input("Вашият имейл адрес")
+    phone = st.text_input("Телефон за връзка")
+    message = st.text_area("Описание на ремонта")
     
-    <label style="font-weight: bold;">Имейл адрес</label><br>
-    <input type="email" name="email" placeholder="Вашият имейл" required style="width: 100%; margin-top: 5px; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"><br>
+    submit_button = st.form_submit_button("🚀 Изпрати запитването")
     
-    <label style="font-weight: bold;">Телефон за връзка</label><br>
-    <input type="text" name="phone" placeholder="08XX XXX XXX" required style="width: 100%; margin-top: 5px; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"><br>
-    
-    <label style="font-weight: bold;">Описание на ремонта</label><br>
-    <textarea name="message" placeholder="Опишете накратко какъв ремонт ви предстои..." required style="width: 100%; height: 120px; margin-top: 5px; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea><br>
-    
-    <button type="submit" style="background-color: #ff4b4b; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px;">🚀 Изпрати запитването</button>
-</form>
-"""
-
-st.markdown(contact_form, unsafe_allow_html=True)
+    if submit_button:
+        if name and email and phone and message:
+            import requests
+            response = requests.post("https://formspree.io/f/xrpgbzko", data={
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "message": message
+            })
+            if response.status_code == 200:
+                st.success("✅ Запитването е изпратено успешно! Ще се свържем с вас скоро.")
+            else:
+                st.error("❌ Възникна грешка при изпращането. Моля, опитайте отново.")
+        else:
+            st.warning("⚠️ Моля, попълнете всички полета преди да изпратите.")
