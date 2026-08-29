@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 
 st.set_page_config(
     page_title="Майстор Ремонт - Строителни Услуги", 
@@ -10,9 +11,10 @@ st.set_page_config(
 st.title("🏗️ Майстор Ремонт - Професионални Строителни Услуги")
 st.write("Качествени строително-ремонтни дейности, довършителни работи и майсторски решения за вашия дом и офис.")
 
+# Нова строителна снимка
 st.image(
-    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop", 
-    caption="Професионализъм и качество във всеки детайл", 
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop", 
+    caption="Професионално строителство и ремонтни дейности", 
     use_container_width=True
 )
 
@@ -58,22 +60,22 @@ with col1:
     st.subheader("Изчислете ориентировъчна цена")
     area = st.number_input("Площ за ремонт (кв.м):", min_value=1, value=50)
     service = st.selectbox("Изберете услуга:", [
-        "Шпакловка и боядисване (15 лв/кв.м)",
-        "Полагане на плочки и фаянс (35 лв/кв.м)",
-        "Монтаж на гипсокартон (25 лв/кв.м)",
-        "Цялостен довършителен ремонт (80 лв/кв.м)"
+        "Шпакловка и боядисване (€7.50 / кв.м)",
+        "Полагане на плочки и фаянс (€17.50 / кв.м)",
+        "Монтаж на гипсокартон (€12.50 / кв.м)",
+        "Цялостен довършителен ремонт (€40.00 / кв.м)"
     ])
     
-    price_per_m2 = 15
+    price_per_m2 = 7.50
     if "плочки" in service:
-        price_per_m2 = 35
+        price_per_m2 = 17.50
     elif "гипсокартон" in service:
-        price_per_m2 = 25
+        price_per_m2 = 12.50
     elif "Цялостен" in service:
-        price_per_m2 = 80
+        price_per_m2 = 40.00
         
     total_price = area * price_per_m2
-    st.info(f"💡 Ориентировъчна крайна сума: **{total_price} лв.**")
+    st.info(f"💡 Ориентировъчна крайна сума: **€{total_price:.2f}**")
 
 with col2:
     st.subheader("Защо да се доверите на нас?")
@@ -84,7 +86,7 @@ with col2:
 
 st.markdown("---")
 
-# Секция Истинска Streamlit форма за запитване (работеща с Formspree)
+# Секция Форма за запитване
 st.header("📩 Изпратете Запитване за Безплатен Оглед")
 st.write("Попълнете полетата по-долу и съобщението ще стигне директно до нашия имейл!")
 
@@ -98,7 +100,6 @@ with st.form("contact_form"):
     
     if submit_button:
         if name and email and phone and message:
-            import requests
             response = requests.post("https://formspree.io/f/xrpgbzko", data={
                 "name": name,
                 "email": email,
