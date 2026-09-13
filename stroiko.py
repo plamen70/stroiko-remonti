@@ -22,23 +22,23 @@ st.image(
 st.markdown("---")
 
 # Секция Услуги с галерия
-st.header("🛠️ Нашите Основни Услуги в Попово и Района")
+st.header("🛠️ Основно Предлагани Услуги в Попово и Района")
 
 col_u1, col_u2, col_u3 = st.columns(3)
 
 with col_u1:
-    st.subheader("🪣 Ремонт на бани и плочки")
-    st.image("banner.jpg", caption="Полагане на плочки, фаянс и теракота", use_container_width=True)
-    st.write("Полагане на фаянс, теракота, гранитогрес, хидроизолация и монтаж на санитария.")
+    st.subheader("🧱 Плочки & Бани")
+    st.image("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop", caption="Полагане на плочки, фаянс и теракота", use_container_width=True)
+    st.write("Професионално полагане на фаянс, теракота, гранитогрес, хидроизолация и цялостен ремонт на бани.")
 
 with col_u2:
-    st.subheader("🎨 Шпакловка и боядисване")
-    st.image("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=600&auto=format&fit=crop", caption="Шпакловане и латекс", use_container_width=True)
-    st.write("Фино шпакловане, боядисване с латекс, шкурене и декоративни мазилки.")
+    st.subheader("🎨 Шпакловка & Боя")
+    st.image("https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=600&auto=format&fit=crop", caption="Шпакловане и боядисване", use_container_width=True)
+    st.write("Фино и грубо шпакловане, шкурене, боядисване с латекс, отстраняване на влага и козметични ремонти.")
 
 with col_u3:
-    st.subheader("🔨 Гипсокартон и тавани")
-    st.image("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop", caption="Довършителни дейности", use_container_width=True)
+    st.subheader("🔨 Гипсокартон & Довършителни")
+    st.image("https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=600&auto=format&fit=crop", caption="Гипсокартон и окачени тавани", use_container_width=True)
     st.write("Монтаж на гипсокартон, окачени тавани, замазки, обръщане на врати и прозорци.")
 # Секция Калкулатор и предимства
 st.header("🧮 Калкулатор на оферта & Предимства")
