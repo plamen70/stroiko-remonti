@@ -47,8 +47,8 @@ with col_u2:
 with col_u3:
     st.subheader("🔨 Гипсокартон & Довършителни")
     st.image(
-        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop",
-        caption="Монтаж на гипсокартон, окачени тавани и довършителни работи",
+        "drywall.jpg",
+        caption="Изграждане на окачени тавани, преградни стени и декоративно осветление",
         use_container_width=True
     )
     st.write("Монтаж на гипсокартон, окачени тавани, замазки, обръщане на врати и прозорци.")
